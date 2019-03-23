@@ -1,7 +1,57 @@
 {% extends "layout.html" %}
+{% load static %}
 
 
 {% block content %}
+
+<div class="container-fluid" style="padding-top:0px">
+    <h3>¿Quiénes somos?</h3>
+
+      Nuestro equipo esta formado por: Santiago Donaher, Francisco del Valle, Rodrigo Diaz, Juan Serrano, Enrique López y Guillermo San Miguel, los cuatro primeros miembros trabajan en el CEIEC (Centro de Estudios de Innovación en Gestión del Conocimiento) en el que se aplican modelos de inteligencia Artificial a problemas de diversa índole.
+      Nuestra motivación para elegir el reto de prevención de enfermedades cardiovasculares tiene su origen en la idea de que un modelo neuronal podría alcanzar una precisión superior a los modelos estadísticos mas utilizados actualmente y suficiente como para informar al usuario de la posibilidad de padecer una enfermedad cardiovascular sin realizar más pruebas médicas.
+</div>
+
+<div class="container-fluid" style="padding-top:0px">
+  <div class="row ">
+    <div class="col-md-12">
+      <div class="align-center centered text-center col-md-4 ">
+          <img src="{% static 'Fran.JPG' %}"  alt="Responsive image" style="border-radius: 50%; width: 70%">
+            <br>Francisco del Valle
+        </div>
+
+      <div class="align-center centered text-center col-md-4">
+          <img src="{% static 'sanmi.jpeg' %}"  alt="Responsive image" style="border-radius: 50%; width: 70%">
+            <br>Guillermo San Miguel
+
+        </div>
+      <div class="align-center centered text-center col-md-4">
+          <img src="{% static 'santi.jpeg' %}" alt="Responsive image" style="border-radius: 50%; width: 70%"/>
+            <br>Santiago Donaher
+
+        </div>
+    </div>
+  </div>
+    <div class="row" style="padding-top: 10%">
+    <div class="col-md-12">
+      <div class="align-center centered text-center col-md-4">
+          <img src="{% static 'enrique.jpg' %}"  alt="Responsive image" style="border-radius: 50%; width: 70%; height: 10%  ">
+            <br>Enrique López
+        </div>
+
+      <div class="align-center centered text-center col-md-4">
+          <img src="{% static 'juan.jpg' %}"  alt="Responsive image" style="border-radius: 50%; width: 70%">
+          <br>Juan Serrano
+        </div>
+
+      <div class="align-center centered text-center col-md-4">
+          <img src="{% static 'Rodrigo.jpeg' %}" alt="Responsive image" style="border-radius: 50%; width: 70%">
+            <br>Rodrigo Díaz
+
+        </div>
+    </div>
+  </div>
+
+</div>
 
 
 {% endblock %}

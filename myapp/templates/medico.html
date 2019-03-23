@@ -3,8 +3,9 @@
 
 {% block content %}
 
-
-<div class="container-fluid">
+<div class="container-fluid"  style="padding-top:0px">
+Este test está orientado a uso profesional y hace uso de datos clínicos, analíticos y electrocardiográficos en pacientes sometidos a una ergometría (prueba de detección de isquemia no invasiva), con el fin de predecir en cuáles de ellos se objetivará posteriormente un grado significativo (>50%) de estenosis en una arteria coronaria principal mediante un cateterismo.
+  <br><br>
   <form action="/inputMedico/" method="get">
     {% csrf_token %}
 
@@ -16,7 +17,7 @@
           </div>
 
           <div class="form-group">
-            <label>Genero</label>
+            <label>Sexo</label>
             <select name="genero" class="form-control" >
               <option value="null"> </option>
                   <option value="0">Mujer</option>
@@ -27,7 +28,6 @@
           <div class="form-group">
             <label>Tipo de dolor de pecho</label>
             <select name="dolor" class="form-control" >
-                  <option value="null"></option>
                   <option value="1">Angina típica</option>
                   <option value="2">Angina atípica</option>
                   <option value="3">Dolor no aginoso</option>
@@ -36,45 +36,44 @@
           </div>
 
           <div class="form-group">
-            <label>Presión sanguínea</label>
+            <label>Presión arterial en reposo (mmHg)</label>
             <input type="number" class="form-control" name="presion" min="0" required>
           </div>
           <div class="form-group">
-            <label>Colesterol</label>
+            <label>Colesterol total (mg/dl)</label>
             <input type="number" class="form-control" name="colesterol" min="100" max="400" required>
           </div>
 
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <label>Azucar en ayunas </label>
+        <label>Glucemia basal (mg/dl)</label>
         <input type="number" class="form-control" name="azucar" min="0" required>
       </div>
+
       <div class="form-group">
-        <label>Resultado del electrocardiograma</label>
+        <label>Electrocardiograma</label>
         <select name="electro" class="form-control" >
-              <option value="null"> </option>
               <option value="0">Normal</option>
-              <option value="1">Anormalidad en ST-T</option>
+              <option value="1">Anormalidad en ST</option>
               <option value="2">Posible hipertrófia en el ventrículo izquierdo por criterios ROMHILT-ESTES</option>
 
           </select>
         </div>
         <div class="form-group">
-          <label>Máximos ritmo cardiaco alcanzado</label>
+          <label>Frecuencia cardiaca máxima (ergometría)</label>
           <input type="number" class="form-control" name="ritmo" min="0" required>
         </div>
         <div class="form-group">
-          <label>Ejercicio inducido a angina</label>
+          <label>Episocio anginoso durante ergometría</label>
           <select name="angina" class="form-control" >
-                <option value="null"> </option>
                 <option value="0">No</option>
                 <option value="1">Sí</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>Máximos ritmo cardiaco alcanzado</label>
+          <label>Descenso del ST durante ergometría (mm)</label>
           <input type="number" class="form-control" name="depresion" min="0" max="5"required>
         </div>
 

@@ -3,9 +3,17 @@
 
 {% block content %}
 
-<div class="container-fluid">
-esto es medico Mostrar
-{{valorMedico}}
+<div class="container-fluid" style="padding-top:0px">
+    <div class="row">
+      <div class="col-md-3"> </div>
+      <div class="col-md-6">
+        <h3 style="font-size: 175%;">Resultado:</h3>
+        <ul>
+          <li style="font-size: 150%;">{{resultado}}</li>
+        </ul>
+      </div>
+      <div class="col-md-3"> </div>
+  </div>
 </div>
 
 {% endblock %}

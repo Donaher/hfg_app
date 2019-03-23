@@ -13,7 +13,7 @@ def view_personal(request):
 def form_personal(request):
     data = request.GET.copy()
 
-    edad = float(data.get('edad'))
+    edad = float(data.get('edad'))/356
     genero = float(data.get('genero'))
 
     altura = float(data.get('altura'))
@@ -33,22 +33,30 @@ def form_personal(request):
         colesterol = 3
 
     glucosa = float(data.get('glucosa'))
-    if (4 <= glucosa and glucosa <= 6):
-        glucosa = 1
-    elif (7 <= glucosa and glucosa <= 8):
-        glucosa = 2
-    elif (9 <= glucosa and glucosa <= 14):
-        glucosa = 3
     fumador = float(data.get('fumador'))
     alcohol = float(data.get('alcohol'))
     actividad = float(data.get('actividad'))
-
-    imc = peso/(altura*altura)
+    imc = peso/((altura/100)*(altura/100))
 
 
     valorNormal = calcularValorNormal(edad,genero,altura,peso,presion_alta,presion_baja,colesterol,glucosa,fumador,alcohol,actividad,imc)
 
-    return render(request, 'personalMostrar.html', {'valorNormal': valorNormal})
+    enunciadoIndice = 'Su índice de masa corporal es: ' + str(round(imc,2))
+
+    if (imc < 18):
+        resultadoIndice = 'Bajo peso.'
+    elif (18 <=imc and imc <25):
+        resultadoIndice = 'Peso adecuado'
+    elif (imc >= 25 and imc < 30):
+        resultadoIndice = 'Sobrepeso'
+    else:
+        resultadoIndice = 'Obesidad'
+
+    enunciadoIndice = enunciadoIndice + '. '  + resultadoIndice
+
+    resultado = str(round(valorNormal*100,0)) + '% de riesgo de evento cardiovascular en 10 años.'
+
+    return render(request, 'personalMostrar.html', {'enunciadoIndice':enunciadoIndice, 'resultado': resultado})
 
 def calcularValorNormal(edad,genero,altura,peso,presion_alta,presion_baja,colesterol,glucosa,fumador,alcohol,actividad,imc):
     module_dir = os.path.dirname(__file__)  # get current directory
@@ -58,20 +66,68 @@ def calcularValorNormal(edad,genero,altura,peso,presion_alta,presion_baja,colest
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
 
+    genero1 =0
+    genero2 = 0
+    if genero == 0:
+        genero1 = 1
+    elif genero == 1:
+        genero2 = 1
+
+        colesterol1 =0
+        colesterol2 = 0
+        colesterol3 = 0
+        if colesterol == 1:
+            colesterol1 = 1
+        elif colesterol == 2:
+            colesterol2 = 1
+        elif colesterol == 3:
+            colesterol2 = 1
+
+        glucosa1 =0
+        glucosa2 = 0
+        glucosa3 = 0
+        if glucosa == 1:
+            glucosa1 = 1
+        elif glucosa == 2:
+            glucosa2 = 1
+        elif glucosa == 3:
+            glucosa2 = 1
+
+    fumador1 =0
+    fumador2 = 0
+    if fumador == 0:
+        fumador1 = 1
+    elif fumador == 1:
+        fumador2 = 1
+
+    actividad1 =0
+    actividad2 = 0
+    if actividad == 0:
+        actividad1 = 1
+    elif actividad == 1:
+        actividad2 = 1
+
+    alcohol1 =0
+    alcohol2 = 0
+    if alcohol == 0:
+        alcohol1 = 1
+    elif alcohol == 1:
+        alcohol2 = 1
+
     valores = numpy.array([edad,
             altura,
             peso,
             presion_alta,
             presion_baja,
-            genero,
-            colesterol,
-            glucosa,
-            fumador,
-            alcohol,
-            actividad,])
+            genero1, genero2,
+            colesterol1, colesterol2, colesterol3,
+            glucosa1, glucosa2, glucosa3,
+            fumador1, fumador2,
+            alcohol1, alcohol2,
+            actividad1, actividad2])
 
 
-    valores = valores.reshape(1,11,1)
+    valores = valores.reshape(1,19,1)
     valor = model.predict(valores)
     valor = valor[0][0]
     return valor
@@ -80,7 +136,7 @@ def calcularValorNormal(edad,genero,altura,peso,presion_alta,presion_baja,colest
 def form_medico(request):
     data = request.GET.copy()
 
-    edad = float(data.get('edad'))
+    edad = float(data.get('edad'))/356
     genero = float(data.get('genero'))
 
     dolor = float(data.get('dolor'))
@@ -100,7 +156,7 @@ def form_medico(request):
     colesterol = float(data.get('colesterol'))
 
     azucar = float(data.get('azucar'))
-    if azucar < 120:
+    if azucar < 125:
         azucar = 0
     else:
         azucar = 1
@@ -158,7 +214,12 @@ def form_medico(request):
     valorMedico = valor[0][0]
 
 
-    return render(request, 'medicoMostrar.html', {'valorMedico': valorMedico})
+    if valorMedico < 0.5:
+        resultado = 'No pacede estenosis significativa. (más de 50%)'
+    else:
+        resultado = 'Posiblemente padece estenosis significativa. (más de 50%)'
+
+    return render(request, 'medicoMostrar.html', {'resultado':resultado})
 
 def calcularValorMedico():
     module_dir = os.path.dirname(__file__)  # get current directory

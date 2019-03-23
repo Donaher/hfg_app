@@ -21,7 +21,7 @@ body {
   .jumbotron {
     background-color:  #337ab7;
     color: #fff;
-    padding: 100px 25px;
+    padding: 60px 10px 15px;
     font-family: Montserrat, sans-serif;
   }
   .container-fluid {
@@ -117,6 +117,7 @@ body {
     border-radius: 0;
     font-family: Montserrat, sans-serif;
   }
+
   .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
   }
@@ -199,6 +200,17 @@ body {
     background-color: #337ab7;
   }
 
+  #botones{
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+  .btn-secondary{
+    background-color: #47EF93;
+    color: #FCFCFC;
+  }
+
   .btn_padding{
 
     padding: 20%;
@@ -214,7 +226,7 @@ body {
 
   .background_img{
 
-    background-image: url("fondo.jpg");
+    background-image: url("fondo2.jpg");
     background-size: cover;
 
   }

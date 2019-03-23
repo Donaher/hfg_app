@@ -2,8 +2,12 @@
 
 
 {% block content %}
-
-<div class="container-fluid">
+<div class="container-fluid"  style="padding-top:0px">
+  Este test está pensado para cualquier persona que desee conocer su condición cardiovascular en los próximos 10 años con datos sencillos de adquirir. Para ello, introduce los datos en el formato que se le indica a continuación.
+  Más abajo adjuntamos unas instrucciones aclaratorias de cómo tomar estos datos.
+    Si tiene alguna duda con la adquisición o utilización de algúno de los métodos
+     de decisión pulse <a href="#explicacion">aquí</a>.
+<br><br>
   <form action="/inputPersonal/" method="get">
     {% csrf_token %}
 
@@ -14,44 +18,47 @@
             <input type="number" class="form-control" name="edad" required>
           </div>
           <div class="form-group">
-            <label>Genero</label>
+            <label>Sexo</label>
             <select name="genero" class="form-control" >
-              <option value="null"> </option>
-                  <option value="0">Mujer</option>
-                  <option value="1">Hombre</option>
+                  <option value="1">Mujer</option>
+                  <option value="2">Hombre</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Altura</label>
+            <label>Altura (cm)</label>
             <input type="number" class="form-control" name="altura" min="0"required>
           </div>
           <div class="form-group">
-            <label>Peso</label>
+            <label>Peso (kg)</label>
             <input type="number" class="form-control" name="peso" min="0" required>
           </div>
           <div class="form-group">
-            <label>Presión alta</label>
+            <label>Presión sistólica (El valor más alto) (mmHg)</label>
             <input type="number" class="form-control" name="presion_alta" min="0" required>
           </div>
           <div class="form-group">
-            <label>Presión baja</label>
+            <label>Presión diastólica (El valor más bajo) (mmHg)</label>
             <input type="number" class="form-control" name="presion_baja" min="0" required>
           </div>
 
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <label>Colesterol</label>
+        <label>Colesterol (mg/dl)<a href="#adquisicion"> ¿Cómo lo mido?</a> </label>
         <input type="number" class="form-control" name="colesterol" min="100" max="400" required>
       </div>
         <div class="form-group">
           <label>Glucosa</label>
-          <input type="number" class="form-control" name="glucosa" min="4" max="14" required>
+          <select name="glucosa" class="form-control" >
+                <option value="1">No diabético</option>
+                <option value="2">Intorente a la glucosa</option>
+                <option value="3">Diabético</option>
+
+          </select>
         </div>
         <div class="form-group">
           <label>Fumador</label>
           <select name="fumador" class="form-control" >
-                <option value="null"> </option>
                 <option value="0">No fumador</option>
                 <option value="1">Fumador</option>
           </select>
@@ -59,15 +66,13 @@
         <div class="form-group">
           <label>Alcohol</label>
           <select name="alcohol" class="form-control" >
-                <option value="null"> </option>
                 <option value="0">Menos de dos veces por semana</option>
                 <option value="1">Más de dos veces por semana</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Actividad</label>
+          <label>Actividad física</label>
           <select name="actividad" class="form-control" >
-                <option value="null"> </option>
                 <option value="0">Menos de una vez a la semana</option>
                 <option value="1">Más de una vez a la semana</option>
           </select>
@@ -87,5 +92,35 @@
   </form>
 
 </div>
+
+
+<div id="explicacion" class="container-fluid" style="padding-top:0px">
+    <h3>Instrucciones para tomar la tensión con tensiómetro</h3>
+
+    <ul>
+      <li>Tomarla tras cinco minutos de reposo por lo menos.</li>
+      <li>La persona debe estar relajada y no tener prisa.</li>
+      <li>Tampoco debe haber comido, bebido sustancias excitantes (café, té) ni fumado durante la media hora previa a la medición.</li>
+      <li>La posición del cuerpo debe ser sentado, no estirado, con la espalda bien apoyada en el respaldo de la silla.</li>
+      <li>Las piernas deben estar tocando el suelo, no cruzadas, y la mano relajada, sin apretar y en posición de descanso.</li>
+      <li>Brazo de referencia o dominante apoyado más o menos a la altura del corazón, mano relajada.</li>
+      <li>El brazo de referencia o dominante es aquel en el que la TA es más alta.</li>
+      <li>El manguito debe de estar en contacto con la piel, así que el paciente deberá remangarse la camisa.</li>
+      <li>Si es invierno y se llevan muchas capas de ropa, será mejor que se las quite porque si se remangan diferentes prendas a la vez se puede crear un anillo que constriña la zona.</li>
+      <li>Una vez posicionada la persona se colocará el manguito, que se adaptará al diámetro del brazo (pequeño, normal, grande). La explicación de la colocación viene reflejada en un gráfico que acompaña al aparato, así que una vez ajustado el manguito se debe presionar el botón para conectar el tensiómetro.</li>
+      <li>Es importante que mientras el manguito se infla el paciente no hable, puesto que eso afectaría a los valores marcados.</li>
+      <li>No redondear cifras</li>
+    </ul>
+<br>
+<div id="adquisicion">
+  <h3>Dónde puedo conseguir un medidor de colesterol y glucosa</h3>
+  <ul>
+    <li>Estos medidores se encuentran en cualquier farmacia.</li>
+    <li>Siga las instucciones de uso del producto.</li>
+  </ul>
+</div>
+
+</div>
+
 
 {% endblock %}

@@ -2,8 +2,20 @@
 {% load static %}
 
 {% block content %}
+<br>
 
-  <div id="botones">
+<div class="container-fluid container" style="padding: 0px;">
+    Esta aplicación te permite conocer tu condición cardiovascular con tan solo unos sencillos datos.
+    Hay dos tipos de test: El primero <strong>personal</strong>, va orientado a los pacientes y estima a partir de unos sencillos
+    datos el riesgo de sufrir un evento cardiovascular en los próximos 10 años. El segundo, <strong>médico</strong>,
+    está orientado a uso profesional y trata de identificar a los pacientes que tienen una enfermedad
+    cardiovascular establecida en el momento de ser sometidos a una prueba complementaria (ergometría).
+
+<br>
+<strong>Este test no sustituye la asistencia por un profesional.</strong>
+  <br> <br>
+
+  <div class="row">
     <div class="col-md-5" style="padding-left: 15%">
       <form action="/personal/" method="get">
         <button href="/personal/" type="subbmit" class="btn btn-primary btn-lg btn-block btn_padding btn-font-style" >Personal</button>
@@ -13,11 +25,11 @@
     </div>
     <div class="col-md-5" style="padding-right: 15%">
       <form action="/medico/" method="get">
-        <button href="/medico/" type="subbmit" class="btn btn-secondary btn-lg btn-block btn_padding btn-font-style">Médico</button>
+        <button href="/medico/" type="subbmit" class="btn btn-success btn-lg btn-block btn_padding btn-font-style">Médico</button>
 
       </form>
     </div>
+    </div>
   </div>
-<div>
 
 {% endblock %}
