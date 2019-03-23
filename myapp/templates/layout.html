@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css.css' %}" type="text/css">
+
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div>
+          <a style="padding-bottom: 20%" href="#">
+          <img src="{% static 'core.png' %}" class="img-fluid" alt="Responsive image" style="width: 30% ">
+        </a>
+    </div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="/habitos/">Habitos Saludables</a></li>
+        <li><a href="/nosotros/">Sobre nosotros</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="bg"></div>
+	<div class="jumbotron text-center background_img" style="size: 100%">
+    <h1 style="font-size: 78px; font-weight: 900;"> Deep-Healthing</h1>
+  </div>
+
+  {% block content %}
+
+
+  {% endblock %}
+
+<footer>
+
+</footer>
+</div>
+</body>
+</html>

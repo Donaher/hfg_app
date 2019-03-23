@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+    <form action="/form_prueba/" method="get">
+      {% csrf_token %}
+        <input type="text" name="nombre" value="">
+
+        <div class="form-group">
+            <select name="sexo">
+                  <option value="0">Mujer</option>
+                  <option value="1">Hombre</option>
+            </select>
+        </div>
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
