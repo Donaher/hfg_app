@@ -1,11 +1,1 @@
-Keras==2.2.4
 Django==2.1.7
-numpy==1.16.2
-gunicorn==19.9.0
-django-heroku==0.3.1
-Django==2.1.7
-Keras-Applications==1.0.7
-Keras-Preprocessing==1.0.9
-tensorboard==1.13.1
-tensorflow==1.13.1
-tensorflow-estimator==1.13.0
