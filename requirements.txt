@@ -4,7 +4,6 @@ numpy==1.16.2
 certifi==2019.3.9
 chardet==3.0.4
 dj-database-url==0.5.0
-Django==1.11.20
 django-heroku==0.3.1
 docopt==0.6.2
 gunicorn==19.9.0
