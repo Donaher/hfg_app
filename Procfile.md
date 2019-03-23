@@ -1,1 +1,1 @@
-web: gunicorn hfg_app.wsgi
+web: gunicorn project_name.wsgi
