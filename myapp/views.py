@@ -73,25 +73,25 @@ def calcularValorNormal(edad,genero,altura,peso,presion_alta,presion_baja,colest
     elif genero == 1:
         genero2 = 1
 
-        colesterol1 =0
-        colesterol2 = 0
-        colesterol3 = 0
-        if colesterol == 1:
-            colesterol1 = 1
-        elif colesterol == 2:
-            colesterol2 = 1
-        elif colesterol == 3:
-            colesterol2 = 1
+    colesterol1 =0
+    colesterol2 = 0
+    colesterol3 = 0
+    if colesterol == 1:
+        colesterol1 = 1
+    elif colesterol == 2:
+        colesterol2 = 1
+    elif colesterol == 3:
+        colesterol2 = 1
 
-        glucosa1 =0
-        glucosa2 = 0
-        glucosa3 = 0
-        if glucosa == 1:
-            glucosa1 = 1
-        elif glucosa == 2:
-            glucosa2 = 1
-        elif glucosa == 3:
-            glucosa2 = 1
+    glucosa1 =0
+    glucosa2 = 0
+    glucosa3 = 0
+    if glucosa == 1:
+        glucosa1 = 1
+    elif glucosa == 2:
+        glucosa2 = 1
+    elif glucosa == 3:
+        glucosa2 = 1
 
     fumador1 =0
     fumador2 = 0
